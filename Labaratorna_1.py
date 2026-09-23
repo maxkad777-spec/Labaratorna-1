@@ -62,23 +62,40 @@ class ServiceStation:
     def add_order(self, order):
         self.orders.append(order)
         order.car.is_repaired = False
-owner = Owner("Іван", "0971234567", 30)
+owner = Owner(
+    "Іван",
+    "0971234567",
+    30
+)
 
-car = Car("Toyota", "Camry", 2018, "AB1234CD")
+car = Car(
+    "Toyota",
+    "Camry",
+    2018,
+    "AB1234CD"
+)
+
 owner.add_car(car)
 
-mechanic = Mechanic("Олег", "Двигуни", 7)
-
-order = RepairOrder(
-    car,
-    owner,
-    "Проблема з двигуном",
-    4500
+mechanic = Mechanic(
+    "Олег",
+    "Двигуни",
+    7
 )
 
 service = ServiceStation(
     "AutoFix",
     "м. Вінниця"
+)
+
+service.add_mechanic(mechanic)
+
+
+service_process(
+    owner,
+    car,
+    mechanic,
+    service
 )
 
 service.add_mechanic(mechanic)
